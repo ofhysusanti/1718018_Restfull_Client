@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.css"/>
+    
+    <!-- MDI Icons -->  
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+    <title>Perpustakaan Rest Client!</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">PerpusKita</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="row my-2">
+            <div class="col-6">
+                <button class="btn btn-info btn-sm" id="btnTambah" onclick="showForm()">Tambah Data</button>
+            </div>
+            <div class="col-6 text-right">
+                <h4 class="text-dark">Data Buku</h4>
+            </div>
+        </div>
+        <div class="row col-12 my-2" id="alertContainer">
+
+        </div>
+        <div class="row  my-2" id="formBukuContainer">
+            <center><h4>Form Data Buku</h4></center>
+            <div class="col-12">
+                <form id="formBuku" onsubmit="event.preventDefault(); saveData();">
+                    <input type="hidden" id="idInput">
+                    <div class="form-row">
+                        <div class="col">
+                            <input type="text" id="judulInput" class="form-control" placeholder="Judul Buku" max="30" required>
+                        </div>
+                    </div>
+                    <div class="form-row my-2">
+                        <div class="col">
+                            <input type="text" id="pengarangInput" class="form-control" placeholder="Nama Pengarang" max="30" required>
+                        </div>
+                    </div>
+                    <div class="form-row my-2">
+                        <div class="col">
+                            <input type="text" id="tahun_terbitInput" class="form-control" placeholder="Tahun Terbit" max="4" required>
+                        </div>
+                    </div>
+                    <div class="form-row my-2">
+                        <div class="col">
+                            <input type="text" id="penerbitInput" class="form-control" placeholder="Penerbit" max="25" required>
+                        </div>
+                    </div>
+                    <div class="form-row my-2 col-12">
+                        <button type="submit" id="btnSimpan" class="btn btn-sm btn-outline-primary">Simpan</button>
+                        &emsp;
+                        <button class="btn btn-sm btn-danger" onclick="cancelForm()" type="reset" id="btnCancel">
+                            <i class="material-icons">close</i>
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="row  mt-1" id="tabelBukuContainer">
+            <div class="col-12">
+                <table class="table" id="tabelBuku">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Judul</th>
+                            <th scope="col">Pengarang</th>
+                            <th scope="col">Tahun Terbit</th>
+                            <th scope="col">Penerbit</th>
+                            <th scope="col">Opsi</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.23/datatables.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+  </body>
+</html>
